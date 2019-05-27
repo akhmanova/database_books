@@ -71,6 +71,7 @@ CREATE TABLE Formats (
 CREATE TABLE Books (
     BookName NVARCHAR(255) NOT NULL,
     BookId INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    BookFileName NVARCHAR(255) NOT NULL,
     
     AuthorId INT NOT NULL
     CONSTRAINT FK_Authors_Books FOREIGN KEY (AuthorId)
