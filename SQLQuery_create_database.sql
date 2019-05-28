@@ -71,15 +71,15 @@ CREATE TABLE Formats (
 CREATE TABLE Books (
     BookName NVARCHAR(255) NOT NULL,
     BookId INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-    BookFileName NVARCHAR(255) NOT NULL,
+    BookFileName NVARCHAR(255),
     
-    AuthorId INT NOT NULL
+    AuthorId INT
     CONSTRAINT FK_Authors_Books FOREIGN KEY (AuthorId)
     REFERENCES Authors (AuthorId)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
 
-    ThemeId INT NOT NULL
+    ThemeId INT
     CONSTRAINT FK_Themes_Books FOREIGN KEY (ThemeId)
     REFERENCES Themes (ThemeId)
     ON DELETE NO ACTION
@@ -89,7 +89,7 @@ CREATE TABLE Books (
     BookYear INT,
     BookPages INT,
 
-    PublisherId INT NOT NULL
+    PublisherId INT
     CONSTRAINT FK_Publishers_Books FOREIGN KEY (PublisherId)
     REFERENCES Publishers (PublisherId)
     ON DELETE NO ACTION
@@ -97,13 +97,13 @@ CREATE TABLE Books (
     
     BookEdition INT,
 
-    FormatId INT NOT NULL
+    FormatId INT
     CONSTRAINT FK_Formats_Books FOREIGN KEY (FormatId)
     REFERENCES Formats (FormatId)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
 
-    LanguageId INT NOT NULL
+    LanguageId INT
     CONSTRAINT FK_Languages_Books FOREIGN KEY (LanguageId)
     REFERENCES Languages (LanguageId)
     ON DELETE NO ACTION
